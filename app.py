@@ -8,4 +8,8 @@ def indes():
 
 @app.route("/test")
 def test():
-    return db.mydoc
+  f=db.mydoc 
+  x = "."
+  for y in f:
+    x=y
+  return x
