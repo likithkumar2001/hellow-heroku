@@ -2,6 +2,9 @@ from flask import Flask,request
 from flask_pymongo import pymongo
 import urllib
 import dns
+from datetime import datetime
+import data_accumulation
+import pytz
 app = Flask(__name__)
 
 def connection():
