@@ -10,7 +10,7 @@ base = client.weather
 data = base.data
 @app.route("/")
 def home():
-  retuen 'Connected to MONGODB!!!'
+  return 'Connected to MONGODB!!!'
 @app.route("/data_for")
 def place():
   plc = request.args.get("place")
