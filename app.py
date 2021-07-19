@@ -8,14 +8,20 @@ CONNECTION_STRING = 'mongodb+srv://likith:' + urllib.parse.quote("Rp-iA@c6!Nq45c
 client = pymongo.MongoClient(CONNECTION_STRING)
 base = client.weather
 data = base.data
-x = {'title': 'TINSUKIA'}
-mydoc = data.find(x) 
-x = "."
-for y in mydoc:
-  x=y
 @app.route("/")
 def home():
-    retuen 'Connected to MONGODB!!!'
+  retuen 'Connected to MONGODB!!!'
+@app.route('/data_for')
+def place():
+  plc = request.args.get('place')
+  x = {'title': plc}
+  mydoc = data.find(x) 
+  x = "."
+  for y in mydoc:
+    x=y
+  return x['Message']
+  
+
 
     
 
