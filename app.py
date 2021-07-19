@@ -11,9 +11,9 @@ data = base.data
 @app.route("/")
 def home():
   retuen 'Connected to MONGODB!!!'
-@app.route('/data_for')
+@app.route("/data_for")
 def place():
-  plc = request.args.get('place')
+  plc = request.args.get("place")
   x = {'title': plc}
   mydoc = data.find(x) 
   x = "."
