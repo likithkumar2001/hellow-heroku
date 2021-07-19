@@ -40,7 +40,6 @@ def place():
     info = data_accumulation.data_cleaning(u);
     data_accumulation.store_data(info);
   x = {'title': plc}
-  x = {'title': result}
   val = fnd(x)
   return val['Message']
   
