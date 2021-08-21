@@ -42,6 +42,14 @@ def place():
   x = {'title': plc}
   val = fnd(x)
   return val['Message']
+
+@app.route("/pdf")
+def pdf():
+  url = "https://mausam.imd.gov.in/imd_latest/contents/agromet/agromet-data/district/current/english-pdf/Anantpur.pdf"
+  filedata = urllib.request.urlopen(url)
+  datatowrite = filedata.read()
+  return datatowrite
+
   
 
 
