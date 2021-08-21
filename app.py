@@ -48,7 +48,13 @@ def pdf():
   url = "https://mausam.imd.gov.in/imd_latest/contents/agromet/agromet-data/district/current/english-pdf/Anantpur.pdf"
   filedata = urllib.request.urlopen(url)
   datatowrite = filedata.read()
-  return datatowrite
+  try:
+    with open('data.pdf', 'wb') as f:
+      f.write(datatowrite)
+    filedata.close()
+  except:
+    filedata.close()
+    return "not done"
 
   
 
