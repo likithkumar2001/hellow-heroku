@@ -8,3 +8,4 @@ dnspython
 bs4
 datetime
 requests
+translate
