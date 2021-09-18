@@ -5,6 +5,8 @@ import dns
 from datetime import datetime
 import data_accumulation
 import pytz
+from translate import Translator
+translator = Translator(to_lang='te')
 app = Flask(__name__)
 
 def connection():
@@ -41,7 +43,7 @@ def place():
     data_accumulation.store_data(info);
   x = {'title': plc}
   val = fnd(x)
-  return val['Message']
+  return translator.translate(val['Message'])
 
 @app.route("/pdf")
 def pdf():
