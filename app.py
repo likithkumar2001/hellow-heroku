@@ -5,8 +5,8 @@ import dns
 from datetime import datetime
 import data_accumulation
 import pytz
+import pandas as pd
 from translate import Translator
-translator = Translator(to_lang='te')
 app = Flask(__name__)
 
 def connection():
@@ -44,6 +44,11 @@ def place():
     data_accumulation.store_data(info);
   x = {'title': plc}
   val = fnd(x)
+  df = pd.read_csv("./AP&TEL.csv")[['NAME_2','lang']]
+  dic = {}
+  for i in range(len(df['NAME_2'])):
+    dic[df['NAME_2'][i].upper()] = df['lang'][i]
+  translator = Translator(to_lang=dic[plc])
   xyz = translator.translate(val['Message'])
   return xyz
 
