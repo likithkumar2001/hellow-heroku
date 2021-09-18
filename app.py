@@ -32,7 +32,7 @@ def home():
 
 @app.route("/data_for")
 def place():
-  plc = request.args.get("place")
+  plc = request.args.get("place").upper()
   x = {'title': plc}
   val = fnd(x)
   IST = pytz.timezone('Asia/Kolkata')
