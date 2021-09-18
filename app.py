@@ -27,7 +27,8 @@ def fnd(x):
 
 @app.route("/")
 def home():
-  return translator.translate('Welcome change the url by adding /data_for?place=NAME !!!')
+  xyz = translator.translate('Welcome change the url by adding /data_for?place=NAME !!!')
+  return xyz
 
 @app.route("/data_for")
 def place():
