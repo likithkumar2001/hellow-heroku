@@ -27,8 +27,8 @@ def fnd(x):
 
 @app.route("/")
 def home():
-  xyz = translator.translate('Welcome change the url by adding /data_for?place=NAME !!!')
-  return xyz
+  
+  return 'Welcome change the url by adding /data_for?place=NAME !!!'
 
 @app.route("/data_for")
 def place():
@@ -44,7 +44,8 @@ def place():
     data_accumulation.store_data(info);
   x = {'title': plc}
   val = fnd(x)
-  return val['Message']
+  xyz = translator.translate(val['Message'])
+  return xyz
 
 @app.route("/pdf")
 def pdf():
