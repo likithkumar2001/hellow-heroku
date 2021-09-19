@@ -48,7 +48,7 @@ def place():
   dic = {}
   for i in range(len(df['NAME_2'])):
     dic[df['NAME_2'][i].upper()] = df['lang'][i]
-  translator = Translator(provider='MyMemory',to_lang=dic[plc])
+  translator = Translator(provider='mymemory',to_lang=dic[plc])
   xyz = translator.translate(val['Message'])
   return xyz
 
