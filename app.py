@@ -48,9 +48,14 @@ def place():
   dic = {}
   for i in range(len(df['NAME_2'])):
     dic[df['NAME_2'][i].upper()] = df['lang'][i]
-  translator = Translator(to_lang=dic[plc])
-  xyz = translator.translate(val['Message'])
-  return xyz
+  try:
+    translator = Translator(to_lang=dic[plc])
+    xyz = translator.translate(val['Message'])
+    return xyz
+  except:
+    return val['Message']
+    
+  
 
 @app.route("/pdf")
 def pdf():
