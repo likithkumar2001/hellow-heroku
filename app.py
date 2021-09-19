@@ -20,10 +20,10 @@ def connection():
 def fnd(x):
   data = connection();
   mydoc = data.find(x)
-  x = "."
+  z = "."
   for y in mydoc:
-    x=y
-  return x
+    z=y
+  return z
 
 @app.route("/")
 def home():
