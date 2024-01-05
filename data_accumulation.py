@@ -1,8 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+import re
+import json
+import urllib
+from pymongo import MongoClient
+import dns
 
 def web_scrapping():
-    import requests
-    from bs4 import BeautifulSoup
-    import re
     url = "https://mausam.imd.gov.in/imd_latest/contents/districtwisewarnings.php"
     html = requests.get(url)
     soup_day = BeautifulSoup(html.content, 'html.parser')
@@ -11,9 +15,6 @@ def web_scrapping():
     return(data)
 
 def data_cleaning(data):
-    import json
-    from bs4 import BeautifulSoup
-    import re
     data=re.sub(r"^\s+|\s+$", "", data)
     data = data.replace("\n","")
     text = '\[(.*?)\]'
@@ -54,9 +55,6 @@ def data_cleaning(data):
 
 
 def store_data(info):
-    import urllib
-    from pymongo import MongoClient
-    import dns
     uri = 'mongodb+srv://likith:'+  urllib.parse.quote("Rp-iA@c6!Nq45c4") +'@cluster0.ms0ap.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     client = MongoClient( uri )
     db = client.weather
